@@ -9,8 +9,7 @@ import (
 
 var (
 	errFoundAll = errors.New("found all")
-	errReadOnly = errors.New("readonly fs")
-	errNoSeek   = errors.New("seek unavailable")
+	ErrReadOnly = errors.New("readonly fs")
 )
 
 type WebDAVFile struct {
@@ -40,9 +39,17 @@ func (wf *WebDAVFile) Readdir(count int) ([]fs.FileInfo, error) {
 	info := []fs.FileInfo{}
 	found := 0
 
-	err := fs.WalkDir(wf.FileSystem, "", func(path string, d fs.DirEntry, err error) error {
+	err := fs.WalkDir(wf.FileSystem, ".", func(path string, d fs.DirEntry, err error) error {
 		if found >= count {
 			return errFoundAll
+		}
+
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() {
+			return nil
 		}
 
 		f, err := wf.FileSystem.Open(path)
@@ -61,7 +68,7 @@ func (wf *WebDAVFile) Readdir(count int) ([]fs.FileInfo, error) {
 		return nil
 	})
 
-	if err != errFoundAll {
+	if err != errFoundAll && err != nil {
 		return nil, err
 	}
 
@@ -77,5 +84,5 @@ func (wf *WebDAVFile) Stat() (fs.FileInfo, error) {
 }
 
 func (wf *WebDAVFile) Write(p []byte) (n int, err error) {
-	return 0, errReadOnly
+	return 0, ErrReadOnly
 }
