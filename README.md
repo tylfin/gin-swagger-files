@@ -1,6 +1,6 @@
 # gin-swagger-files
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/tylfin/gin-swagger-files)](https://goreportcard.com/report/github.com/tylfin/gin-swagger-files)
+[![Go](https://github.com/tylfin/gin-swagger-files/actions/workflows/go.yml/badge.svg)](https://github.com/tylfin/gin-swagger-files/actions/workflows/go.yml) [![Go Report Card](https://goreportcard.com/badge/github.com/tylfin/gin-swagger-files)](https://goreportcard.com/report/github.com/tylfin/gin-swagger-files)
 
 Fork of github.com/swaggo/files that provides support for embed and multiple swagger-ui versions
 
