@@ -1,5 +1,7 @@
 # gin-swagger-files
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/tylfin/gin-swagger-files)](https://goreportcard.com/report/github.com/tylfin/gin-swagger-files)
+
 Fork of github.com/swaggo/files that provides support for embed and multiple swagger-ui versions
 
 ## Example usage
