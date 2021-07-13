@@ -49,6 +49,6 @@ func main() {
 To update the Swagger UI version, copy the contents of the
 [swagger-api/swagger-ui](https://github.com/swagger-api/swagger-ui)
 [dist folder](https://github.com/swagger-api/swagger-ui/tree/master/dist) into the dist folder here. This will
-automatically be bundled into the Package Manager binary at build time.
+automatically be bundled into the library at build time.
 
 The version should be tagged appropriately like `3.51.1`.
